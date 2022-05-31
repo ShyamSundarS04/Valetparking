@@ -1,0 +1,251 @@
+<html lang="en">
+	<head><title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #87CEEB;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+	.cool:hover{
+		background-color: black;
+	}
+	.cool2{
+		padding-top: 400px;
+	}
+	.hel:hover{
+		background-color: black;
+	}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+	
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+	.mid{
+		
+		padding-left: 180px;
+	}
+	.font1{
+		font-family: cursive;
+	}
+	.fon2{
+		font-family:sans-serif;
+	}
+	.searchbox {
+float: left;
+}
+input[type=text] {
+padding: 6px;
+margin-top: 8px;
+font-size: 17px;
+border: none;
+}
+.searchbox button {
+
+padding: 8px;
+margin-top: 10px;
+margin-left: 10px;
+background: blue;
+color:white;
+font-size: 20px;
+border: none;
+cursor: pointer;
+}
+.searchbox button:hover {
+background: blue;
+}
+	.outer{
+		background-color: beige;
+	}
+	.inline{
+		display: inline-block;
+  padding: 20px;
+	}
+	.check{
+		background-color: blue;
+	}
+	table{
+	margin-top: 50px;
+	text-align: center;
+	background: #333;
+	color: #fff;
+}
+
+#show th, #show td{
+	padding: 13px;
+}
+
+#btna td input{
+	width: 100%;
+}
+	.attract{
+		width: 100%;
+		height: 50px;
+		background-color: cornflowerblue;
+	}
+	#age{
+		width: inherit;
+	}
+	#btn{
+		background-color: aquamarine;
+	}
+	#btn:hover{
+		background-color: blanchedalmond;
+	}
+	#show{
+				background-color: cornflowerblue;
+
+	}
+	#show:hover{
+		background-color: black;
+	}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+	<div class="cool"><a href="services.html">Home &#128663;</a></div>
+  <div class="cool"><a href="services.html">Services &#8480; </a></div>
+  <div class="cool"><a href="services.html">Clients</a></div>
+  <div class="cool"><a href="services.html">Contact ☎</a></div>
+	<div class="cool2"><div class="hel"><a href="services.html">Help?</a></div></div>
+</div>
+	<div class="mid"><h1 class="font1">Valet Parking</h1>
+	<div class="outer"><div class="inline">
+		
+		<div class="searchbox">
+<form> 
+	<h2 class="fon2">Dashboard</h2>
+<center><input type="text" id="myInput" placeholder=" Search...." onkeyup="getup()" name="search"> 
+	<button type="submit"> 🔍</button><button onclick="displaydata()">Check out</button></center> 
+
+</form>
+</div> 
+		</div>
+	</div>
+	</div>
+	<center>
+		<table border="4" class="attract" id="myTable">
+			<thead>
+				<tr>
+					<th>Vehicle No</th>
+					<td><input type="text" name="fname" id="fname"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Vehicle Model</th>
+					<td><input type="text" name="lname" id="lname"></td>
+				</tr>
+				<tr>
+					<th>Phone No&#128241;</th>
+					<td><input type="text" name="email" id="email"></td>
+				</tr>
+				<tr>
+					<th>Check In Time</th>
+					<td><input type="Time" name="age" id="age"></td>
+				</tr>
+				<tr id="btna">
+					<td colspan="2"><input type="button" name="button" id="btn" value="Check In" onclick="AddRow()"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table border="4" id="show">
+			<thead>
+				<tr>
+					<th>Vehicle No</th>
+					<th>Vehicle Model</th>
+					<th>Phone No&#128241;</th>
+					<th>Check In Time</th>
+					
+				</tr>
+			</thead>
+		</table>
+	</center>
+<script>
+		
+		var list1 = [];
+		var list2 = [];
+		var list3 = [];
+		var list4 = [];
+	    
+
+		var n = 1;
+		var x = 0;
+
+		function AddRow(){
+
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+		
+
+
+			list1[x] = document.getElementById("fname").value;
+			list2[x] = document.getElementById("lname").value;
+			list3[x] = document.getElementById("email").value;
+			list4[x] = document.getElementById("age").value;
+			
+
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+			var cel4 = NewRow.insertCell(3);
+			
+
+			cel1.innerHTML = list1[x];
+			cel2.innerHTML = list2[x];
+			cel3.innerHTML = list3[x];
+			cel4.innerHTML = list4[x];
+			
+			n++;
+			x++;
+		}
+	function getup() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+	</script>
+</body>
+
+</html>
